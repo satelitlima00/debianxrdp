@@ -20,11 +20,13 @@ RUN apt update && apt install -y \
     pulseaudio-utils \
     wine \
     wine32 \
-    firefox-esr && \
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    sudo dpkg -i google-chrome-stable_current_amd64.deb \
+    sudo apt --fix-broken install -y \
     apt clean && rm -rf /var/lib/apt/lists/*
 
 # Set root password
-RUN echo "root:root" | chpasswd
+RUN echo "suto:suto" | chpasswd
 
 RUN sed -i 's/^allowed_users=.*/allowed_users=anybody/' /etc/X11/Xwrapper.config || echo "allowed_users=anybody" >> /etc/X11/Xwrapper.config
 

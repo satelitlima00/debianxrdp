@@ -30,7 +30,7 @@ RUN echo "suto:suto" | chpasswd
 
 RUN sed -i 's/^allowed_users=.*/allowed_users=anybody/' /etc/X11/Xwrapper.config || echo "allowed_users=anybody" >> /etc/X11/Xwrapper.config
 
-RUN echo "startxfce4" > /root/.xsession && chmod 700 /root/.xsession
+RUN echo "startxfce4" > /suto/.xsession && chmod 700 /suto/.xsession
 
 # Generate machine-id for dbus
 RUN mkdir -p /var/run/dbus && dbus-uuidgen > /var/lib/dbus/machine-id
